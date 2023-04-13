@@ -15,7 +15,7 @@ Grid.prototype.init = function() {
     for (var i = 0; i < this.count; i++) {
         var value = {};
 
-        if(i%2 == 0) {
+        if(i % 2 === 0) {
             value.x = (i > 0) ? 1 : 0;
             value.y = (i > 0) ? 1 : 0;
         } else {
@@ -102,5 +102,5 @@ Basket.prototype.updatePosition = function (position, callback) {
     this.x = position.x;
     this.y = position.y;
 
-    this.callback('updateBasketPosition', { x: this.x, y: this.y , left: this.x < 25 ? 1 : 0});
+    this.callback('updateBasketPosition', { x: this.x, y: this.y , left: this.x > 25 ? 1 : 0});
 };

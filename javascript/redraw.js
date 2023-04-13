@@ -10,11 +10,24 @@ HTMLredraw.prototype.updateEggPosition = function(data) {
     this.changeAttributesValue(['data-egg-' + data.egg], [data.position]);
 };
 
+HTMLredraw.prototype.is_basket_nearly_egg = function(data) {
+    const egg = document.querySelector('#egg' + data);
+    console.log('#egg' + data)
+    const x_validation = Math.abs(this.basket.style.backgroundPositionX - egg.style.backgroundPositionX) < 60
+    const y_validation = (this.basket.style.backgroundPositionY+40) > egg.style.backgroundPositionY
+    if (data === 0) {
+        console.log(this.basket.style.backgroundPositionY, egg.style.backgroundPositionY)
+        console.log(Math.abs(this.basket.style.backgroundPositionX - egg.style.backgroundPositionX))
+        console.log(x_validation, y_validation)
+    }
+    return x_validation && y_validation
+};
+
 HTMLredraw.prototype.updateBasketPosition = function(data) {
     this.changeAttributesValue(['left'], [data.left]);
     let x1 = this.basket.style.backgroundPositionX;
     let y1 = this.basket.style.backgroundPositionY;
-    this.basket.style.transform = `translate(${x1 - data.x}px, ${y1 - data.y}px)`;
+    this.basket.style.transform = `translate(${x1 - data.x - 40}px, ${y1 - data.y - 40}px)`;
 };
 
 HTMLredraw.prototype.changeAttributesValue = function(attributes, values) {

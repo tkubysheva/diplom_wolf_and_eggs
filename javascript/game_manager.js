@@ -26,7 +26,7 @@ GameManager.prototype.init = function () {
 
     this.port = null;
 
-    this.basketStartPosition = { x: 0, y: 1 };
+    this.basketStartPosition = { x: 0, y: 0 };
 };
 
 // Set up the game
@@ -51,12 +51,13 @@ GameManager.prototype.connect = function () {
         try {
             this.port =  await navigator.serial.requestPort({ filters: [{ usbVendorId }]});
             await this.port.open({ baudRate: 115200 });
-            connectButton.hidden = true;
+            connectButton.style.display = "none";
             this.setup();
             this.start();
         } catch (e) {
             console.log("Error in connection:", e);
         }
+
     });
 
 }
@@ -67,7 +68,7 @@ GameManager.prototype.move = function (data) {
     switch (data.type) {
         case 'arrow':
             // 0: up, 1: right, 2: down, 3: left, 4: R - restart
-            if(data.key%2 == 0) {
+            if(data.key % 2 === 0) {
                 position.y = (data.key > 0) ? 0 : 1;
             } else {
                 position.x = (data.key > 2) ? 0 : 1;
@@ -139,7 +140,9 @@ GameManager.prototype.upLevel = function () {
 };
 
 GameManager.prototype.updateScore = function (data) {
-    if (this.grid.list[data.egg].x == this.basket.x && this.grid.list[data.egg].y == this.basket.y) {
+    if (this.HTMLredraw.is_basket_nearly_egg(data.egg)){
+        console.log("Поймал!")
+    // if (this.grid.list[data.egg].x === this.basket.x && this.grid.list[data.egg].y === this.basket.y) {
         this.score += this.point;
         this.HTMLredraw.updateScore({ value: this.score });
 

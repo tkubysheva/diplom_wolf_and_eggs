@@ -9,7 +9,7 @@ html, body {
 body {
     margin: 0;
     padding: 0;
-    background: #564e47 url('../images/game-background.jpg');
+    background: #564e47 url('../images/background.png');
     color: #9A998E;
     font-size: 14px;
     line-height: 1.2em;
@@ -91,34 +91,20 @@ h3 {
     height: 80px;
     position: absolute;
 }
-#game-wrap[left-b="0"] .basket {
+#game-wrap[left="0"] .basket {
     width: 82px;
     height: 78px;
     background: transparent url('../images/basket/basket-p-1-0.png') center center no-repeat;
-    top: 158px;
-    left: 126px;
+    top: 50%;
+    left: 50%;
 }
-#game-wrap[left-b="1"] .basket {
+#game-wrap[left="1"] .basket {
     width: 82px;
     height: 78px;
     background: transparent url('../images/basket/basket-p-0-0.png') center center no-repeat;
-    top: 165px;
-    right: 123px;
+    top: 50%;
+    left: 50%;
 }
-/*#game-wrap[data-bx="0"][data-by="0"] .basket {*/
-/*    width: 85px;*/
-/*    height: 65px;*/
-/*    background: transparent url('../images/basket/basket-p-0-0.png') center center no-repeat;*/
-/*    left: 124px;*/
-/*    bottom: 50px;*/
-/*}*/
-/*#game-wrap[data-bx="1"][data-by="0"] .basket {*/
-/*    width: 85px;*/
-/*    height: 65px;*/
-/*    background: transparent url('../images/basket/basket-p-1-0.png') center center no-repeat;*/
-/*    right: 126px;*/
-/*    bottom: 44px;*/
-/*}*/
 
 /*
  * Wolf
@@ -128,14 +114,14 @@ h3 {
     height: 140px;
     position: absolute;
 }
-#game-wrap[data-bx="0"] .wolf {
+#game-wrap[left="1"] .wolf {
     width: 98px;
     height: 152px;
     top: 164px;
     left: 179px;
     background: transparent url('../images/wolf/wolf-p-0.png') center center no-repeat;
 }
-#game-wrap[data-bx="1"] .wolf {
+#game-wrap[left="0"] .wolf {
     width: 90px;
     height: 146px;
     top: 166px;
