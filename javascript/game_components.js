@@ -72,16 +72,18 @@ Egg.prototype.run = function(speed, callback) {
 };
 
 Egg.prototype.nextStep = function() {
-    ++this.step;
 
-    this.callback('updateEggPosition', { egg: this.chicken, position: this.step });
 
-    if (this.step > this.amount) {
+    if (this.step === this.amount) {
         clearInterval(this.timer);
         this.step = 0;
-        this.callback('updateEggPosition', { egg: this.chicken, position: 0 });
         this.callback('unHoldChicken', { egg: this.chicken });
         this.callback('updateScore', { egg: this.chicken, point: this.point });
+        this.callback('updateEggPosition', { egg: this.chicken, position: 0 });
+    }
+    else {
+        ++this.step;
+        this.callback('updateEggPosition', { egg: this.chicken, position: this.step });
     }
 };
 

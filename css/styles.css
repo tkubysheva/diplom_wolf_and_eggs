@@ -328,6 +328,57 @@ h3 {
     transform: rotate(68deg);
 }
 
+#game-wrap #loss1 {
+    position: absolute;
+    top: 48px;
+    left: 108px;
+    width: 30px;
+    height: 30px;
+    display: none;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-image: url('../images/life.png');
+}
+#game-wrap #loss2 {
+    position: absolute;
+    top: 48px;
+    left: 140px;
+    width: 30px;
+    height: 30px;
+    display: none;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-image: url('../images/life.png');
+}
+#game-wrap #loss3 {
+    position: absolute;
+    top: 48px;
+    left: 172px;
+    width: 30px;
+    height: 30px;
+    display: none;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-image: url('../images/life.png');
+}
+#game-wrap[data-loss="1"] #loss1 {
+    display: block;
+}
+#game-wrap[data-loss="2"] #loss1 {
+    display: block;
+}
+#game-wrap[data-loss="3"] #loss1{
+    display: block;
+}
+#game-wrap[data-loss="2"] #loss2 {
+    display: block;
+}
+#game-wrap[data-loss="3"] #loss2 {
+    display: block;
+}
+#game-wrap[data-loss="3"] #loss3{
+    display: block;
+}
 #game-wrap #score {
     position: absolute;
     top: 48px;

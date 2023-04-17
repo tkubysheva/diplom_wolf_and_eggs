@@ -14,7 +14,7 @@ GameManager.prototype.init = function () {
 
     this.count = 4;
     this.level = 1;
-    this.speed = 800;
+    this.speed = 1500;
     // this.maxSpeed = 200;
     this.interval = this.speed*2.5;
     this.point = 2;
@@ -142,7 +142,6 @@ GameManager.prototype.upLevel = function () {
 GameManager.prototype.updateScore = function (data) {
     if (this.HTMLredraw.is_basket_nearly_egg(data.egg)){
         console.log("Поймал!")
-    // if (this.grid.list[data.egg].x === this.basket.x && this.grid.list[data.egg].y === this.basket.y) {
         this.score += this.point;
         this.HTMLredraw.updateScore({ value: this.score });
 

@@ -2,7 +2,7 @@ function StabInputManager(port) {
     this.events = {};
     this.port = port;
     this.data = [];
-    this.listen();
+    this.listen().then();
 }
 
 StabInputManager.prototype.on = function (event, callback) {
@@ -63,9 +63,9 @@ StabInputManager.prototype.listen = async function () {
                                 values_list.push(this.calculateValue2(j));
                             }
                             values_list = values_list.reverse()
-                            var x1= -1 * (Math.round(sensitivity*0.0001*(Math.floor( values_list[1-1] ) - Math.floor( values_list[4-1] ) - Math.floor( values_list[3-1] ) + Math.floor( values_list[2-1] ) )));
-                            var y1= -1 * (Math.round(sensitivity*0.0001*(Math.floor( values_list[1-1] ) + Math.floor( values_list[4-1] ) - Math.floor( values_list[2-1] ) - Math.floor( values_list[3-1] ) )));
-                            console.log(x1, y1);
+                            var x1= (Math.round(sensitivity*0.0001*(Math.floor( values_list[1-1] ) - Math.floor( values_list[4-1] ) - Math.floor( values_list[3-1] ) + Math.floor( values_list[2-1] ) )));
+                            var y1= (Math.round(sensitivity*0.0001*(Math.floor( values_list[1-1] ) + Math.floor( values_list[4-1] ) - Math.floor( values_list[2-1] ) - Math.floor( values_list[3-1] ) )));
+                            // console.log(x1, y1);
                             if (!x0 && !y0){
                                 x0 = x1;
                                 y0 = y1;
